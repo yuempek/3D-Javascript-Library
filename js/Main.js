@@ -3,8 +3,8 @@
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 
-	canvas.width = 800;
-	canvas.height = 600;
+	canvas.width = 500;
+	canvas.height = 500;
 
 	context.translate(canvas.width / 2, canvas.height / 2); // 0 should be in the centre
 	context.strokeStyle = '#222222';
