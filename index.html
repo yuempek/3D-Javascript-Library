@@ -4,6 +4,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Projection of 3D Models in JavaScript and HTML5 Canvas</title>
 		<meta name="viewport" content="width=device-width,initial-scale=0.5,maximum-scale=1.0">
+  
+        <link rel="stylesheet" href="css/styles.css?v=1.0">
+        
 		<script src="./js/Vector3D.js" description="3 elements"></script>
 		<script src="./js/Matrix3D.js" description="3x3 elements"></script>
 		<script src="./js/Vertex3D.js"></script>
@@ -14,8 +17,11 @@
 		<script src="./js/Render3D.js" description="draw model & axis indicator"></script>
 	</head>
 	<body style="">
-
-		<canvas id="canvas" width="1024" height="640" style="border:1px solid #ccc"></canvas>
+        <p><span class="centered centered-text">Use <span class="hotkey">scroll</span> to change perspective</span></p>
+        <p><span class="centered centered-text">Use <span class="hotkey">ctrl</span> + <span class="hotkey">scroll</span> to change yaw</span></p>
+        <p><span class="centered centered-text">Use <span class="hotkey">shift</span> + <span class="hotkey">scroll</span> to change yaw</span></p>
+        <p><span class="centered centered-text">Use <span class="hotkey">alt</span> + <span class="hotkey">scroll</span> to change yaw</span></p>
+        <canvas id="canvas" width="800" height="600" class="centered bordered"></canvas>
 
 		<script src="./js/Animation.js" description="3d cube model"></script>
 		<script src="./js/Model.js" description="3d cube model"></script>

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+* {
+    font-family: 'Comfortaa', cursive;
+    font-size: 12px;
+}
+.centered-text {
+    text-align : center;
+}
+
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bordered {
+    border: 1px solid #ccc;
+}
+
+.hotkey {
+    background-color: #eee;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 5px;
+}
