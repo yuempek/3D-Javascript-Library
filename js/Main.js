@@ -62,7 +62,7 @@
 
 	document.addEventListener('mousemove', move);
 	document.addEventListener('touchmove', move);
-	document.addEventListener('wheel', wheel);
+	canvas.addEventListener('wheel', wheel);
 	
 	
 	
