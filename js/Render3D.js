@@ -22,7 +22,7 @@ function Renderer3D(context, scene, camera){
 				
 				for(var j = 0; j < vertices.length; j++){
 					var v = transformCamera(vertices[j]);
-					elements[i].zorder += v.z;
+					if(v) elements[i].zorder += v.z;
 				}
 				
 				// average z
