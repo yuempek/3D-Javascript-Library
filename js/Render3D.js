@@ -11,8 +11,45 @@ function Renderer3D(context, scene, camera){
 		THIS.context.restore();
 	}
 	
+	var sortElements = function(elements){
+		
+		for(var i = 0; i < elements.length; i++){
+			if (elements[i] instanceof Polygon3D) { 
+				
+				var vertices = elements[i].transformedVertices();
+		
+				elements[i].zorder = 0;
+				
+				for(var j = 0; j < vertices.length; j++){
+					var v = transformCamera(vertices[j]);
+					elements[i].zorder += v.z;
+				}
+				
+				// average z
+				elements[i].zorder /= vertices.length;
+				
+				continue;
+			}
+			
+			if (elements[i] instanceof Label3D) { 
+				
+				var v = transformCamera(elements[i].vertex);
+				
+				elements[i].zorder = v.z;
+				
+				continue;
+			}
+		}
+		
+		elements.sort(function(a, b){return b.zorder - a.zorder;});
+		
+		return elements;
+	}
+	
 	var drawScene = function(scene){
 		var elements = scene.elements;
+		
+		sortElements(elements);
 		
 		for(var i = 0; i < elements.length; i++){
 			//TODO add other types
@@ -42,13 +79,14 @@ function Renderer3D(context, scene, camera){
 		THIS.context.fillStyle = "#FFF";
 		THIS.context.beginPath();
 		
+		moveTo(vertices[0]);
 		
 		for(var i = 0; i < vertices.length; i++){
 			var next = (i+1) % vertices.length;
-			if(moveTo(vertices[i])) drawline(vertices[next], polygon.color);
+			drawline(vertices[next], polygon.color);
 		}
 		
-		//THIS.context.fill();
+		THIS.context.fill();
 		THIS.context.stroke();
 		
 	}
